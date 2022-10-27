@@ -1,0 +1,82 @@
+/* Search bar */
+.search-bar-container {
+    display: flex;
+    order: 0;
+    gap: 10px;
+    padding: 10px;
+    width: 100vw;
+}
+
+.search-bar {
+    width: 100vw;
+    height: auto;
+    border: none;
+    border-radius: 10px;
+    padding-left: 5px;
+}
+
+/* Header bottom part */
+.navigation-container {
+    display: flex;
+    width: 100vw;
+    padding: 0 20px 0 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Header logo */
+.logo-container {
+    text-align: center;
+    padding: 10px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 30px;
+    background-color: rgba(246, 131, 31, 0.7);
+    transition: all 200ms ease-out;
+}
+
+/* Header logo > hover */
+.logo-container:hover {
+    background-color: rgba(246, 131, 31, 1);
+    ;
+}
+
+/* Projects */
+.projects-container {
+    display: flex;
+    gap: 10px;
+    order: 1;
+    font-size: 1.5em;
+    color: white;
+}
+
+.projects-container div {
+    background-color: rgba(224, 58, 61, 0.15);
+    padding: 10px 40px 10px 40px;
+    height: 50px;
+    width: auto;
+}
+
+/* Buttons */
+.buttons-container {
+    display: flex;
+    gap: 10px;
+    order: 2
+}
+
+.buttons-container button {
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    color: white;
+    background-color: rgba(98, 187, 71, 0.7);
+    font-size: 1.3em;
+    transition: all 200ms ease-out;
+}
+
+.buttons-container button:hover {
+    cursor: pointer;
+    background-color: rgba(98, 187, 71, 1);
+}

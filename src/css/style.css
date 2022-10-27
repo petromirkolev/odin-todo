@@ -1,5 +1,30 @@
+/* CSS Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Header */
+.header-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 100vw;
+    height: auto;
+    padding: 15px;
+    background-color: rgba(153, 153, 153, 0.9);
+}
+
+
+
+
+
+
+/* Footer */
+footer {
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
 }
