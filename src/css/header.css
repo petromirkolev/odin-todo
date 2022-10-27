@@ -1,82 +1,54 @@
 /* Search bar */
 .search-bar-container {
     display: flex;
-    order: 0;
+    align-items: center;
     gap: 10px;
-    padding: 10px;
-    width: 100vw;
 }
 
 .search-bar {
+    visibility: visible;
     width: 100vw;
-    height: auto;
-    border: none;
-    border-radius: 10px;
-    padding-left: 5px;
+    height: 1px;
+    border-radius: 20px;
+    padding-left: 10px;
+    font-size: 1.3em;
+    transition: all 500ms ease-in-out;
 }
 
-/* Header bottom part */
-.navigation-container {
-    display: flex;
-    width: 100vw;
-    padding: 0 20px 0 20px;
-    align-items: center;
-    justify-content: space-between;
+.search-icon,
+.menu-icon {
+    transition: all 200ms ease-in-out;
 }
 
-/* Header logo */
-.logo-container {
-    text-align: center;
-    padding: 10px;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 30px;
-    background-color: rgba(246, 131, 31, 0.7);
-    transition: all 200ms ease-out;
-}
-
-/* Header logo > hover */
-.logo-container:hover {
-    background-color: rgba(246, 131, 31, 1);
-    ;
-}
-
-/* Projects */
-.projects-container {
-    display: flex;
-    gap: 10px;
-    order: 1;
-    font-size: 1.5em;
-    color: white;
-}
-
-.projects-container div {
-    background-color: rgba(224, 58, 61, 0.15);
-    padding: 10px 40px 10px 40px;
-    height: 50px;
-    width: auto;
+.search-icon:hover,
+.menu-icon:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 /* Buttons */
 .buttons-container {
     display: flex;
+    justify-content: flex-start;
     gap: 10px;
-    order: 2
 }
 
 .buttons-container button {
-    width: 200px;
-    height: 50px;
-    border-radius: 25px;
-    border: none;
-    color: white;
-    background-color: rgba(98, 187, 71, 0.7);
     font-size: 1.3em;
-    transition: all 200ms ease-out;
+    padding: 0 30px 0 30px;
+    background-color: rgba(98, 187, 71, 0.7);
+    border: none;
+    border-radius: 15px;
+    color: white;
+    transition: all 200ms ease-in-out;
 }
 
 .buttons-container button:hover {
+    background-color: rgba(98, 187, 71, 0.9);
     cursor: pointer;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.buttons-container button:active {
     background-color: rgba(98, 187, 71, 1);
 }
