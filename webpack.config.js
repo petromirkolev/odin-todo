@@ -5,7 +5,6 @@ module.exports = {
   mode: "development",
   entry: {
     index: "./src/index.js",
-    footer: "./src/scripts/footerController.js",
     header: "./src/scripts/headerController.js",
     menu: "./src/scripts/menuController.js",
   },

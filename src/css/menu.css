@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'corey';
+    src: url('../fonts/CoreySans-Light.ttf');
+}
+
+.nav-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    background-color: rgba(153, 153, 153, 0.8);
+    width: calc(150px + 5vw);
+    height: auto;
+    padding: 30px;
+    margin-left: 20px;
+}
+
+@keyframes dropdown {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: auto;
+    }
+
+}
+
+.nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-new-goal,
+.btn-new-task {
+    font-family: "corey";
+    font-size: 1.2em;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(98, 187, 71, 0.7);
+    color: white;
+    transition: all 200ms ease-out;
+}
+
+.btn-new-goal:hover,
+.btn-new-task:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    background-color: rgba(98, 187, 71, 1);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item h1 {
+    display: flex;
+    gap: 5px;
+    padding-left: 0;
+    align-items: center;
+    font-family: "corey";
+}
+
+.btn-expand:hover {
+    color: #e03a3c;
+    cursor: pointer;
+}
