@@ -8,6 +8,7 @@ module.exports = {
     header: "./src/scripts/headerController.js",
     menu: "./src/scripts/menuController.js",
     goal: "./src/scripts/goalController.js",
+    home: "./src/scripts/homeController.js",
   },
   devtool: "inline-source-map",
   devServer: {
