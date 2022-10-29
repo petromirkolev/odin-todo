@@ -21,11 +21,5 @@ document.querySelector(".search-icon").addEventListener("click", (e) => {
 });
 
 document.querySelector(".menu-icon").addEventListener("click", (e) => {
-  if (!isMenuActive) {
-    document.querySelector(".nav-container").style.display = "flex";
-    isMenuActive = true;
-  } else {
-    document.querySelector(".nav-container").style.display = "none";
-    isMenuActive = false;
-  }
+  document.querySelector(".nav-container").classList.toggle("active");
 });
