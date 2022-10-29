@@ -11,7 +11,7 @@
   gap: 10px;
   border-radius: 10px;
   background-color: rgba(153, 153, 153, 0.8);
-  width: auto;
+  width: calc(200px + 5vw);
   padding: 30px;
   margin-left: 20px;
   visibility: hidden;
@@ -21,6 +21,7 @@
 /* Pseudo class for when navigation is active */
 .nav-container.active {
   visibility: visible;
+  position: static;
   opacity: 1;
 }
 /* Buttons container */
@@ -51,12 +52,15 @@
   background-color: rgba(98, 187, 71, 1);
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
-
-.nav-item h1 {
+.nav-item {
   display: flex;
+  gap: 10px;
   align-items: center;
-  gap: 5px;
+}
+.nav-item h1 {
   font-family: "corey";
+  max-width: calc(200px - 1vw);
+  word-wrap: break-word;
   transition: all 200ms ease;
 }
 .nav-item h1:hover {
