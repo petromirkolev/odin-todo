@@ -4,7 +4,7 @@ An application to add tasks and track your progress. Written in JavaScript, HTML
 
 [▶ Live Preview](https://petromirkolev.github.io/odin-todo/)
 
-# 🚀Features
+# 🚀 Features
 
 - Allows users to create different goals and add tasks to them, as well as complete tasks and track their progress towards a specific goals.
 
