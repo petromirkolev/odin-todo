@@ -56,14 +56,14 @@
   display: flex;
   gap: 10px;
   align-items: center;
+  transition: all 200ms ease;
 }
 .nav-item h1 {
   font-family: "corey";
   max-width: calc(200px - 1vw);
   word-wrap: break-word;
-  transition: all 200ms ease;
 }
-.nav-item h1:hover {
+.nav-item:hover {
   transform: scale(1.5);
   color: #e03a3c;
   cursor: pointer;
