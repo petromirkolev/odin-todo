@@ -1,7 +1,3 @@
-@font-face {
-  font-family: "corey";
-  src: url("../fonts/CoreySans-Light.ttf");
-}
 /* Navigation container */
 .nav-container {
   display: flex;
@@ -34,7 +30,6 @@
 /* Buttons styling */
 .btn-new-goal,
 .btn-new-task {
-  font-family: "corey";
   font-size: 1.2em;
   width: 150px;
   height: 50px;
@@ -59,7 +54,6 @@
   transition: all 200ms ease;
 }
 .nav-item h1 {
-  font-family: "corey";
   max-width: calc(200px - 1vw);
   word-wrap: break-word;
 }

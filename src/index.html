@@ -46,14 +46,63 @@
       </section>
       <section class="app-container">
         <div class="home-container">
-          <div class="test"></div>
-          <div></div>
-          <div></div>
-          <div></div>
-
-          <!-- TO DO -->
+          <div class="latest-goals">
+            <h1>Latest goals</h1>
+            <h2>Test</h2>
+            <h2>Test</h2>
+            <h2>Test</h2>
+          </div>
+          <div class="latest-tasks">
+            <h1>Latest tasks</h1>
+            <h2>Test</h2>
+            <h2>Test</h2>
+            <h2>Test</h2>
+          </div>
+          <div class="priority-tasks">
+            <h1>Top priority tasks</h1>
+            <h2>Test</h2>
+            <h2>Test</h2>
+            <h2>Test</h2>
+          </div>
+          <div class="deadline-tasks">
+            <h1>Tasks approaching deadline</h1>
+            <h2>Test</h2>
+            <h2>Test</h2>
+            <h2>Test</h2>
+          </div>
         </div>
-        <div class="goal-container"></div>
+        <div class="goal-container">
+          <button class="close-goal-btn">Close form</button>
+          <div class="add-new-goal">
+            <h1>Add new goal</h1>
+            <form class="add-new-goal-form" action="submit">
+              <label for="name">Name</label>
+              <input type="text" name="name" id="name" required />
+              <label for="description">Description</label>
+              <input type="text" name="description" id="description" required />
+              <label for="completed">Completed</label>
+              <input type="checkbox" name="completed" id="completed" />
+            </form>
+            <button>Add goal</button>
+            <!-- <form class="add-new-goal-form" action="submit">
+              <label for="name">Name</label>
+              <input type="text" name="name" id="name" required />
+              <label for="description">Description</label>
+              <input type="text" name="description" id="description" required />
+              <label for="due-date">Due date</label>
+              <input type="date" name="due-date" id="due-date" />
+              <label for="priority">Priority</label>
+              <select name="priority" id="priority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+                <option value="urgent">Urgent</option>
+              </select>
+              <label for="completed">Completed</label>
+              <input type="checkbox" name="completed" id="completed" />
+            </form> -->
+          </div>
+        </div>
         <div class="task-container"></div>
       </section>
     </main>
