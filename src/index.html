@@ -72,7 +72,9 @@
           </div>
         </div>
         <div class="goal-container">
-          <button class="close-goal-btn">Close form</button>
+          <button class="close-goal-btn">
+            <span class="material-symbols-outlined"> close </span>
+          </button>
           <div class="add-new-goal">
             <h1>Add new goal</h1>
             <form class="add-new-goal-form" action="submit">
@@ -80,10 +82,8 @@
               <input type="text" name="name" id="name" required />
               <label for="description">Description</label>
               <input type="text" name="description" id="description" required />
-              <label for="completed">Completed</label>
-              <input type="checkbox" name="completed" id="completed" />
+              <button class="add-goal">Add goal</button>
             </form>
-            <button>Add goal</button>
             <!-- <form class="add-new-goal-form" action="submit">
               <label for="name">Name</label>
               <input type="text" name="name" id="name" required />
