@@ -1,7 +1,7 @@
 /* Goal container styling */
-.goal-container {
+.task-container {
   display: none;
-  text-align: center;
+  justify-content: center;
   position: relative;
   width: inherit;
   height: inherit;
@@ -9,20 +9,19 @@
   border-radius: inherit;
   gap: 20px;
 }
-.add-new-goal h1 {
+.add-new-task h1 {
   text-decoration: underline;
 }
-/* Add goal form styling */
-.add-new-goal-form {
+.add-new-task-form {
   display: flex;
   margin-top: 30px;
   gap: 20px;
   /* max-height: min-content; */
 }
-.add-new-goal-form label {
+.add-new-task-form label {
   font-size: 1.5em;
 }
-.add-new-goal-form input {
+.add-new-task-form input {
   min-height: 30px;
   min-width: calc(200px + 40vw);
   border-radius: 10px;
@@ -31,7 +30,11 @@
   text-align: center;
   font-size: 1.2em;
 }
-.add-new-goal-form button {
+.add-new-task-form select {
+  font-size: 1.5em;
+  text-align: center;
+}
+.add-new-task-form button {
   min-width: calc(100px + 5vw);
   font-size: 1.5em;
   border-radius: 10px;
@@ -41,14 +44,14 @@
   padding: 5px;
   transition: all 100ms ease;
 }
-.add-new-goal-form button:hover {
+.add-new-task-form button:hover {
   cursor: pointer;
 }
-.add-new-goal-form button:active {
+.add-new-task-form button:active {
   transform: scale(1.1);
 }
 /* Close view button */
-.close-goal-btn {
+.close-task-btn {
   position: absolute;
   border: none;
   background: transparent;
@@ -56,30 +59,30 @@
   top: -30px;
   transition: all 200ms ease;
 }
-.close-goal-btn:hover {
+.close-task-btn:hover {
   transform: scale(1.5);
   color: #e03a3c;
   cursor: pointer;
 }
-.close-goal-btn:active {
+.close-task-btn:active {
   transform: scale(1.7);
   color: #e03a3c;
 }
-/* Add new goal view */
-.add-new-goal {
+/* Add new task view */
+.add-new-task {
   display: flex;
   flex-direction: column;
 }
 
-/* Add new goal form styling */
-.add-new-goal-form {
+/* Add new task form styling */
+.add-new-task-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 /* Mobile view */
 @media screen and (max-width: 600px) {
-  .add-new-goal-form button {
+  .add-new-task-form button {
     min-width: calc(100px + 10vw);
   }
 }

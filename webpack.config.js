@@ -5,10 +5,11 @@ module.exports = {
   mode: "development",
   entry: {
     index: "./src/index.js",
+    home: "./src/scripts/homeController.js",
     header: "./src/scripts/headerController.js",
     menu: "./src/scripts/menuController.js",
     goal: "./src/scripts/goalController.js",
-    home: "./src/scripts/homeController.js",
+    task: "./src/scripts/taskController.js",
   },
   devtool: "inline-source-map",
   devServer: {

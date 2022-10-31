@@ -78,32 +78,55 @@
           <div class="add-new-goal">
             <h1>Add new goal</h1>
             <form class="add-new-goal-form" action="submit">
-              <label for="name">Name</label>
-              <input type="text" name="name" id="name" required />
-              <label for="description">Description</label>
-              <input type="text" name="description" id="description" required />
+              <label for="goal-name">Name</label>
+              <input type="text" name="goal-name" id="goal-name" required />
+              <label for="goal-description">Description</label>
+              <input
+                type="text"
+                name="goal-description"
+                id="goal-description"
+                required
+              />
               <button class="add-goal">Add goal</button>
             </form>
-            <!-- <form class="add-new-goal-form" action="submit">
-              <label for="name">Name</label>
-              <input type="text" name="name" id="name" required />
-              <label for="description">Description</label>
-              <input type="text" name="description" id="description" required />
-              <label for="due-date">Due date</label>
-              <input type="date" name="due-date" id="due-date" />
-              <label for="priority">Priority</label>
-              <select name="priority" id="priority">
+          </div>
+          <div class="view-goal"></div>
+        </div>
+        <div class="task-container">
+          <button class="close-task-btn">
+            <span class="material-symbols-outlined"> close </span>
+          </button>
+          <div class="add-new-task">
+            <form class="add-new-task-form" action="submit">
+              <label for="task-name">Name</label>
+              <input type="text" name="task-name" id="task-name" required />
+              <label for="task-description">Description</label>
+              <input
+                type="text"
+                name="task-description"
+                id="task-description"
+                required
+              />
+              <label for="task-due-date">Due date</label>
+              <input type="date" name="task-due-date" id="task-due-date" />
+              <label for="task-priority">Priority</label>
+              <select name="task-priority" id="task-priority">
                 <option value="low">Low</option>
                 <option value="medium">Medium</option>
                 <option value="high">High</option>
                 <option value="urgent">Urgent</option>
               </select>
-              <label for="completed">Completed</label>
-              <input type="checkbox" name="completed" id="completed" />
-            </form> -->
+              <label for="task-completed">Completed</label>
+              <input
+                type="checkbox"
+                name="task-completed"
+                id="task-completed"
+              />
+              <button class="add-task">Add task</button>
+            </form>
           </div>
+          <div class="view-task"></div>
         </div>
-        <div class="task-container"></div>
       </section>
     </main>
   </body>
