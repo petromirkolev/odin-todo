@@ -1,34 +1,43 @@
-/* Goal container styling */
+/* Add new task or view task styling */
+/* Control visibility */
 .task-container {
   display: none;
-  justify-content: center;
+}
+/* Add or view task container styling */
+.task-container,
+.view-task-container {
+  text-align: center;
   position: relative;
   width: inherit;
   height: inherit;
-  padding: 15px;
-  border-radius: inherit;
+  padding: 30px;
   gap: 20px;
 }
-.add-new-task h1 {
+/* Add or view task heading styling */
+.add-new-task h1,
+.view-task-container h1 {
   text-decoration: underline;
+  margin-bottom: 30px;
 }
+/* Add new task form styling */
 .add-new-task-form {
   display: flex;
-  margin-top: 30px;
+  flex-direction: column;
+  align-items: center;
   gap: 20px;
-  /* max-height: min-content; */
 }
 .add-new-task-form label {
   font-size: 1.5em;
+  text-decoration: underline;
 }
 .add-new-task-form input {
   min-height: 30px;
   min-width: calc(200px + 40vw);
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
   padding: 0 10px 0 10px;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 2em;
 }
 .add-new-task-form select {
   font-size: 1.5em;
@@ -44,45 +53,67 @@
   padding: 5px;
   transition: all 100ms ease;
 }
+/* Button hover effect */
 .add-new-task-form button:hover {
   cursor: pointer;
 }
 .add-new-task-form button:active {
   transform: scale(1.1);
 }
-/* Close view button */
-.close-task-btn {
-  position: absolute;
-  border: none;
-  background: transparent;
-  right: 10px;
-  top: -30px;
-  transition: all 200ms ease;
+/* === Add new task styling ends here === */
+/* === View a task styling starts here === */
+/* View task styling */
+.view-task-container {
+  display: none;
 }
-.close-task-btn:hover {
-  transform: scale(1.5);
-  color: #e03a3c;
-  cursor: pointer;
-}
-.close-task-btn:active {
-  transform: scale(1.7);
-  color: #e03a3c;
-}
-/* Add new task view */
-.add-new-task {
+.task-info-container {
   display: flex;
-  flex-direction: column;
+  gap: 30px;
 }
-
-/* Add new task form styling */
-.add-new-task-form {
+.view-task-container div {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
 }
-/* Mobile view */
+.task-info-container > div > h3 {
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+.task-info-container > div > p {
+  font-size: 1.2em;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 200;
+}
+.task-info-container button {
+  background: none;
+  border: none;
+  transition: all 200ms ease;
+}
+.task-info-container button:hover {
+  transform: scale(1.5);
+  cursor: pointer;
+}
+/* === View a task styling ends here === */
+
+/* Mobile view styling */
 @media screen and (max-width: 600px) {
+  /* === Add new task styling starts here === */
+  .task-container,
+  .view-task-container {
+    width: 100%;
+  }
+  .view-task-container div {
+    font-size: 1.2em;
+  }
   .add-new-task-form button {
     min-width: calc(100px + 10vw);
+  }
+  .add-new-task-form button {
+    min-width: calc(100px + 10vw);
+    /* === Add new task styling ends here === */
+    /* === View a task styling starts here === */
+    /* === View a task styling ends here === */
   }
 }
