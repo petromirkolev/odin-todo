@@ -1,7 +1,9 @@
 // Import stylesheet
 import "../css/home.css";
-// import renderHome from "../renderers/homeViewRenderer";
+import renderHome from "../renderers/homeViewRenderer.js";
 
-// export default function homeController() {
-//   renderHome();
-// }
+const homeController = () => {
+  renderHome();
+};
+
+export default homeController;

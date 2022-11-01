@@ -1,8 +1,9 @@
-// Apply general page styling
 import "../src/css/style.css";
+import { renderHeader } from "../src/scripts/headerController.js";
+import { renderMenu, menuBtnEvents } from "./scripts/menuController.js";
+import { renderHomeView } from "../src/renderers/homeViewRenderer.js";
 
-// import homeController from "../src/scripts/homeController.js";
-
-// window.addEventListener("load", function () {
-//   homeController();
-// });
+renderHeader();
+renderMenu();
+menuBtnEvents();
+renderHomeView();

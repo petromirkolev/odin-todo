@@ -1,59 +1,54 @@
 /* Header */
 .header-container {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
 }
-
 /* Icons pack */
 .header-icons {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
-
 /* Search bar */
 .search-bar {
-    visibility: visible;
-    width: 100vw;
-    height: 1px;
-    border-radius: 20px;
-    padding-left: 10px;
-    font-size: 1.3em;
-    transition: all 500ms ease-in-out;
+  width: 100vw;
+  height: 1px;
+  border-radius: 20px;
+  padding-left: 10px;
+  font-size: 1.3em;
+  transition: all 500ms ease-in-out;
 }
-
+.search-bar.active {
+  height: 40px;
+}
 /* Icons transition */
 .search-icon,
 .menu-icon,
 .gh-icon {
-    transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
 }
-
 .search-icon:hover,
 .menu-icon:hover,
 .gh-icon:hover {
-    cursor: pointer;
-    transform: scale(1.1);
+  cursor: pointer;
+  transform: scale(1.1);
 }
-
 /* Style GH logo icon */
 .gh-icon {
-    height: 40px;
+  height: 40px;
 }
-
 /* Mobile design */
 @media screen and (max-width: 600px) {
-    .header-container {
-        display: flex;
-        flex-direction: column;
-        padding: 5px;
-        gap: 5px;
-    }
-
-    .search-bar {
-        border-radius: 0;
-        border: 1px solid black;
-    }
+  .header-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 5px;
+  }
+  .search-bar {
+    border-radius: 0;
+    border: 1px solid black;
+  }
 }
