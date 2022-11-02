@@ -10,11 +10,12 @@ An application to add tasks and track your progress. Written in JavaScript, HTML
 
 # 🔨 To-Do
 
-- [ ] Create app skeleton
+- [ ] Create application functionality
 
 ### ✔ Done
 
 - [x] Create README
+- [x] Create app skeleton
 
 # 📖 Debugging notes
 
