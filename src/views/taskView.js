@@ -1,6 +1,6 @@
 export const taskView = `
 <div class="view-task-container">
-  <button class="close-goal-btn">
+  <button class="close-btn">
     <span class="material-symbols-outlined"> close </span>
   </button>
   <h1>📛 Example task</h1>

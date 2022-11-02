@@ -1,11 +1,8 @@
 /* === Goal container styling === */
-/* Control view visibility */
-.goal-container {
-  display: none;
-}
 /* Add new goal or view goal main container styling */
 .goal-container,
 .view-goal-container {
+  display: block;
   text-align: center;
   position: relative;
   width: inherit;
@@ -16,7 +13,8 @@
 .list-goals {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  align-items: center;
+  gap: 20px;
 }
 /* Add new goal form styling */
 .add-new-goal-form {
@@ -43,8 +41,8 @@
   text-align: center;
   font-size: 2em;
 }
-.add-new-goal-form button {
-  min-width: calc(100px + 5vw);
+.add-goal {
+  min-width: calc(100px + 10vw);
   font-size: 1.5em;
   border-radius: 10px;
   border: none;
@@ -53,18 +51,14 @@
   padding: 5px;
   transition: all 100ms ease;
 }
-.add-new-goal-form button:hover {
+.add-goal:hover {
   cursor: pointer;
 }
-.add-new-goal-form button:active {
+.add-goal:active {
   transform: scale(1.1);
 }
-
 /* === Add new goal styling ends here === */
 /* === View a goal styling starts here === */
-.view-goal-container {
-  display: none;
-}
 .goal-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -79,11 +73,9 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 200;
 }
-.list-goals h2,
 .goal-wrapper h3 {
   transition: all 200ms ease;
 }
-.list-goals h2:hover,
 .goal-wrapper h3:hover {
   color: #e03a3c;
   cursor: pointer;
@@ -92,13 +84,4 @@
 
 /* Mobile view */
 @media screen and (max-width: 600px) {
-  /* === Add new goal styling starts here === */
-  .add-new-goal-form button {
-    min-width: calc(100px + 10vw);
-  }
-  /* === Add new goal styling ends here === */
-
-  /* === View a goal styling starts here === */
-
-  /* === View a goal styling ends here === */
 }

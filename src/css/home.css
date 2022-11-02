@@ -1,6 +1,6 @@
 /* Home container view styling */
 .home-container {
-  display: grid; /* none or grid */
+  display: grid;
   grid-template:
     "latest-goals latest-tasks"
     "priority-tasks deadline-tasks";

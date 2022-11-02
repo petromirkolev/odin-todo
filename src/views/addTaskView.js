@@ -1,6 +1,6 @@
 export const addTaskView = `
 <div class="task-container">
-  <button class="close-task-btn">
+  <button class="close-btn">
     <span class="material-symbols-outlined"> close </span>
   </button>
   <div class="add-new-task">
@@ -37,8 +37,8 @@ export const addTaskView = `
         name="task-completed"
         id="task-completed"
       />
+      </form>
       <button class="add-task">Add task</button>
-    </form>
   </div>
 </div>
 `;

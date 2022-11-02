@@ -1,9 +1,8 @@
-// Import stylesheet
 import "../css/home.css";
-import renderHome from "../renderers/homeViewRenderer.js";
+import { renderHomeView } from "../renderers/homeRenderer.js";
 
-const homeController = () => {
-  renderHome();
+const homeController = {
+  renderHomeView,
 };
 
 export default homeController;

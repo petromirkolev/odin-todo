@@ -1,16 +1,16 @@
-/* Add new task or view task styling */
-/* Control visibility */
-.task-container {
-  display: none;
-}
 /* Add or view task container styling */
 .task-container,
 .view-task-container {
+  display: block;
   text-align: center;
   position: relative;
   width: inherit;
   height: inherit;
-  padding: 30px;
+}
+.add-new-task {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 20px;
 }
 /* Add or view task heading styling */
@@ -43,8 +43,8 @@
   font-size: 1.5em;
   text-align: center;
 }
-.add-new-task-form button {
-  min-width: calc(100px + 5vw);
+.add-task {
+  min-width: calc(100px + 10vw);
   font-size: 1.5em;
   border-radius: 10px;
   border: none;
@@ -54,18 +54,14 @@
   transition: all 100ms ease;
 }
 /* Button hover effect */
-.add-new-task-form button:hover {
+.add-task:hover {
   cursor: pointer;
 }
-.add-new-task-form button:active {
+.add-task:active {
   transform: scale(1.1);
 }
 /* === Add new task styling ends here === */
 /* === View a task styling starts here === */
-/* View task styling */
-.view-task-container {
-  display: none;
-}
 .task-info-container {
   display: flex;
   gap: 30px;
@@ -107,13 +103,7 @@
   .view-task-container div {
     font-size: 1.2em;
   }
-  .add-new-task-form button {
-    min-width: calc(100px + 10vw);
-  }
-  .add-new-task-form button {
-    min-width: calc(100px + 10vw);
-    /* === Add new task styling ends here === */
-    /* === View a task styling starts here === */
-    /* === View a task styling ends here === */
-  }
+  /* === Add new task styling ends here === */
+  /* === View a task styling starts here === */
+  /* === View a task styling ends here === */
 }

@@ -1,40 +1,36 @@
 import "../css/menu.css";
-import { menuView } from "../views/menuView.js";
-const menuContainer = document.querySelector(".nav-container");
+import goalController from "./goalController.js";
+import taskController from "./taskController.js";
+import updateMenuGoals from "../helpers/updateMenuGoals.js";
+import { renderGoalView } from "../renderers/goalRenderer.js";
 
-const renderMenu = () => {
-  // Render menu
-  menuContainer.innerHTML = menuView;
-
-  // Show or hide navigation menu
+// Show or hide menu
+const showOrHideMenu = () => {
   document.querySelector(".menu-icon").addEventListener("click", (e) => {
     document.querySelector(".nav-container").classList.toggle("active");
   });
 };
-
-const menuBtnEvents = () => {
-  // Local variables
-  const navButtons = document.querySelector(".nav-buttons");
-  // Menu buttons event listeners
-  navButtons.addEventListener("click", (e) => {
+// Buttons event listener
+const menuBtnListener = () => {
+  document.querySelector(".nav-buttons").addEventListener("click", (e) => {
     const currentButton = e.target.classList[0];
-
-    switch (currentButton) {
-      case "btn-new-goal":
-        console.log("New Goal");
-
-        // renderAddGoal();
-        break;
-      case "btn-new-task":
-        console.log("New Task");
-
-        // renderAddTask();
-
-        break;
-      default:
-        break;
+    if (currentButton === "btn-new-goal") {
+      goalController.renderAddGoalView();
+      goalController.addNewGoal();
     }
+    if (currentButton === "btn-new-task") taskController.renderAddTaskView();
+  });
+};
+// Goals event listener
+const goalBtnListener = () => {
+  document.querySelector(".nav-goals").addEventListener("click", (e) => {
+    renderGoalView();
   });
 };
 
-export { renderMenu, menuBtnEvents };
+export default function menuController() {
+  updateMenuGoals();
+  showOrHideMenu();
+  menuBtnListener();
+  goalBtnListener();
+}

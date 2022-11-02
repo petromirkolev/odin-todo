@@ -1,6 +1,6 @@
 export const addGoalView = `
 <div class="goal-container">
-  <button class="close-goal-btn">
+  <button class="close-btn">
     <span class="material-symbols-outlined"> close </span>
   </button>
   <div class="add-new-goal">
@@ -15,8 +15,8 @@ export const addGoalView = `
         id="goal-description"
         required
       />
+      </form>
       <button class="add-goal">Add goal</button>
-    </form>
   </div>
 </div>
 `;

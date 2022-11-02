@@ -9,7 +9,6 @@
   background-color: rgba(153, 153, 153, 0.8);
   width: calc(5vw + 200px);
   padding: 30px;
-  margin-left: 20px;
   visibility: hidden;
   opacity: 0;
   transition: visibility 400ms ease, opacity 400ms ease;
@@ -47,6 +46,11 @@
   background-color: rgba(98, 187, 71, 1);
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
+.nav-goals {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 .nav-item {
   display: flex;
   gap: 10px;
@@ -58,7 +62,7 @@
   word-wrap: break-word;
 }
 .nav-item:hover {
-  transform: scale(1.5);
+  transform: scale(1.1);
   color: #e03a3c;
   cursor: pointer;
 }
@@ -81,12 +85,14 @@
     width: 180px;
     height: 60px;
   }
+
   .nav-item {
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .nav-item h1 {
-    font-size: 2em;
+    font-size: 1.5em;
   }
 }

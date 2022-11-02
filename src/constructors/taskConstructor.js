@@ -6,5 +6,6 @@ export default class Task {
     this.priority = priority;
   }
   parentGoal();
+  type = 'task';
   isCompleted = false;
 }

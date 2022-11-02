@@ -17,8 +17,22 @@
     <header class="header-container"></header>
     <main class="section-main">
       <!-- Menu container -->
-      <section class="nav-container"></section>
+      <section class="nav-container">
+        <div class="nav-buttons">
+          <button class="btn-new-goal">New goal</button>
+          <button class="btn-new-task">New task</button>
+        </div>
+        <div class="nav-goals"></div>
+      </section>
       <!-- App container -->
+      <!-- Success modal start -->
+      <div id="successModal" class="modal">
+        <div class="modal-content">
+          <span class="modal-close">&times;</span>
+          <p></p>
+        </div>
+      </div>
+      <!-- Success modal end -->
       <section class="app-container"></section>
     </main>
     <!-- <script defer type="module" src="../src/index.js"></script> -->

@@ -3,4 +3,6 @@ export default class Goal {
     this.name = name;
     this.description = description;
   }
+  type = "goal";
+  id = Date.now();
 }

@@ -1,17 +1,17 @@
-/* Header */
+/* Header styling */
 .header-container {
   display: flex;
   align-items: center;
   padding: 20px;
   gap: 20px;
 }
-/* Icons pack */
+/* Icons pack styling */
 .header-icons {
   display: flex;
   align-items: center;
   gap: 20px;
 }
-/* Search bar */
+/* Search bar styling */
 .search-bar {
   width: 100vw;
   height: 1px;
@@ -23,7 +23,7 @@
 .search-bar.active {
   height: 40px;
 }
-/* Icons transition */
+/* Icons transition styling */
 .search-icon,
 .menu-icon,
 .gh-icon {
@@ -35,7 +35,7 @@
   cursor: pointer;
   transform: scale(1.1);
 }
-/* Style GH logo icon */
+/* GH logo icon styling */
 .gh-icon {
   height: 40px;
 }
