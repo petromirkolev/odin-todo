@@ -1,6 +1,8 @@
 import { taskView } from "../views/taskView.js";
 import { addTaskView } from "../views/addTaskView.js";
 import closeView from "../helpers/closeBtnHelper.js";
+import { getGoals } from "../helpers/taskHelper.js";
+
 const appContainer = document.querySelector(".app-container");
 
 const renderTaskView = () => {
@@ -13,6 +15,7 @@ const renderAddTaskView = () => {
   appContainer.innerHTML = "";
   appContainer.innerHTML = addTaskView;
   closeView();
+  getGoals();
 };
 
 export { renderAddTaskView, renderTaskView };

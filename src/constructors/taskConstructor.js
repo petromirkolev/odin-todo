@@ -1,11 +1,11 @@
 export default class Task {
-  constructor(name, description, dueDate, priority) {
+  constructor(name, description, dueDate, priority, goal) {
     this.name = name;
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
+    this.goal = goal;
   }
-  parentGoal();
-  type = 'task';
+  type = "task";
   isCompleted = false;
 }

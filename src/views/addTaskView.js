@@ -26,19 +26,16 @@ export const addTaskView = `
       </select>
       <label for="parent-goal">🥅 Goal</label>
       <select name="parent-goal" id="parent-goal">
-        <option value="lorem">lorem</option>
-        <option value="lorem">lorem</option>
-        <option value="lorem">lorem</option>
-        <option value="lorem">lorem</option>
       </select>
-      <label for="task-completed">✔︎ Completed</label>
-      <input
-        type="checkbox"
-        name="task-completed"
-        id="task-completed"
-      />
       </form>
       <button class="add-task">Add task</button>
   </div>
 </div>
 `;
+
+// <label for="task-completed">✔︎ Completed</label>
+// <input
+//   type="checkbox"
+//   name="task-completed"
+//   id="task-completed"
+// />

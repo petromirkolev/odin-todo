@@ -14,11 +14,16 @@ const showOrHideMenu = () => {
 const menuBtnListener = () => {
   document.querySelector(".nav-buttons").addEventListener("click", (e) => {
     const currentButton = e.target.classList[0];
+    // Call add new goal view and add new goal function
     if (currentButton === "btn-new-goal") {
       goalController.renderAddGoalView();
       goalController.addNewGoal();
     }
-    if (currentButton === "btn-new-task") taskController.renderAddTaskView();
+    // Call add new task view and add task function
+    if (currentButton === "btn-new-task") {
+      taskController.renderAddTaskView();
+      taskController.addNewTask();
+    }
   });
 };
 // Goals event listener
