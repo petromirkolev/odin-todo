@@ -1,3 +1,4 @@
+// import homeBtnListener from "./homeBtnListener.js";
 export default function updateHelper(
   localStorageData,
   kind,
@@ -31,12 +32,15 @@ export default function updateHelper(
   <h2>${item1}</h2>
   `
   );
+
   container.addEventListener("click", (e) => {
     if (e.target.tagName !== "H2" || e.target.textContent === "Empty") return;
-    const goalClicked = data.filter(
+    const clickTarget = data.filter(
       (goal) => goal.name === e.target.textContent
     );
-    const id = goalClicked[0].id;
+    const id = clickTarget[0].id;
+    eventListener !== undefined ? eventListener(id) : null;
     eventListener(id);
+    return id;
   });
 }

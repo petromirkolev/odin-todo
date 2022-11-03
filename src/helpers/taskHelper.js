@@ -33,9 +33,8 @@ const addNewTask = () => {
     homeController.renderHomeView();
   });
 };
-
 // Add goals to dropdown menu in new task view
-const getGoals = () => {
+const addTaskGetDropdownGoals = () => {
   // Import goals from local storage
   let latestGoals = JSON.parse(localStorage.getItem("goals"));
   // If goals, add them to view
@@ -58,5 +57,14 @@ const getGoals = () => {
       );
   }
 };
+// Update task view
+const updateTaskView = () => {
+  const goals = JSON.parse(localStorage.getItem("goals"));
+  const tasks = JSON.parse(localStorage.getItem("tasks"));
 
-export { addNewTask, getGoals };
+  // homeBtnListener();
+
+  // console.log(data);
+};
+
+export { addNewTask, addTaskGetDropdownGoals, updateTaskView };

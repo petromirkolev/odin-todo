@@ -12,22 +12,18 @@ const renderHomeGoalView = (id) => {
   // Add goal info to view
   document.querySelector(".list-goals").insertAdjacentHTML(
     "afterbegin",
-    `
-  <h1>${name}<button class="edit-goal">✏️</button></h1>
-  <h2>🎯 Goal description<button class="edit-goal">✏️</button></h2>
-  <p>${description}</p>
-  <h2>📗 Goal tasks</h2>
-  `
+    `<h1>${name}</h1>
+     <h2>🎯 Goal description</h2>
+     <p>${description}</p>
+     <h2>📗 Goal tasks</h2>`
   );
   // Link goal to delete goal button
-  document.querySelector(".list-goals").insertAdjacentHTML(
-    "beforeend",
-    `
-  <button class="delete-goal" id="${name}">Delete</button>
-
-  `
-  );
-
+  document
+    .querySelector(".list-goals")
+    .insertAdjacentHTML(
+      "beforeend",
+      `<button class="delete-goal" id="${name}">Delete</button>`
+    );
   if (tasks.length !== 0) {
     tasks.forEach((task) => {
       document
@@ -35,11 +31,9 @@ const renderHomeGoalView = (id) => {
         .insertAdjacentHTML("afterbegin", `<h3>🛠 ${task.name}</h3>`);
     });
   }
-
   deleteGoal(name, tasks);
   closeView();
 };
-
 const renderAddGoalView = () => {
   appContainer.innerHTML = "";
   appContainer.innerHTML = addGoalView;
