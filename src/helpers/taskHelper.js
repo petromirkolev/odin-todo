@@ -1,8 +1,7 @@
 import Task from "../constructors/taskConstructor.js";
 import taskStorage from "../storage/taskStorage.js";
-import renderModal from "../renderers/modalRenderer";
+import renderModal from "../renderers/modalRenderer.js";
 import homeController from "../scripts/homeController.js";
-
 const query = document.querySelector.bind(document);
 
 // Call new task constructor and push new task to local storage

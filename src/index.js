@@ -1,4 +1,4 @@
-import "../src/css/style.css";
+// import "../src/css/style.css";
 
 import homeController from "./scripts/homeController.js";
 import menuController from "./scripts/menuController.js";

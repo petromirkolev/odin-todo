@@ -1,7 +1,7 @@
-import { taskView } from "../views/taskView.js";
 import { addTaskView } from "../views/addTaskView.js";
-import closeView from "../helpers/closeBtnHelper.js";
+import { taskView } from "../views/taskView.js";
 import { getGoals } from "../helpers/taskHelper.js";
+import closeView from "../helpers/closeBtnHelper.js";
 
 const appContainer = document.querySelector(".app-container");
 

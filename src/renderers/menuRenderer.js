@@ -1,10 +1,9 @@
-import "../css/home.css";
+// import "../css/home.css";
 import updateMenuGoals from "../helpers/updateMenuGoals.js";
-const goalsContainer = document.querySelector(".nav-goals");
 
-// Render home view
+// Render all goals in the application menu
 function renderMenuGoals() {
-  goalsContainer.innerHTML = "";
+  document.querySelector(".nav-goals").innerHTML = "";
   updateMenuGoals();
 }
 

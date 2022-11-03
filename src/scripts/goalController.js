@@ -1,13 +1,13 @@
-import "../css/goal.css";
+// import "../css/goal.css";
 import {
-  renderGoalView,
+  renderHomeGoalView,
   renderAddGoalView,
 } from "../renderers/goalRenderer.js";
-import addNewGoal from "../helpers/addNewGoal.js";
+import { addNewGoal } from "../helpers/goalHelper.js";
 
 const goalController = {
   // Render goal view
-  renderGoalView,
+  renderHomeGoalView,
   // Render add new goal view
   renderAddGoalView,
   // Add new goal

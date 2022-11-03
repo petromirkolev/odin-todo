@@ -1,9 +1,9 @@
-import "../css/task.css";
+// import "../css/task.css";
 import {
   renderTaskView,
   renderAddTaskView,
 } from "../renderers/taskRenderer.js";
-import { addNewTask } from "../helpers/taskHelper";
+import { addNewTask } from "../helpers/taskHelper.js";
 
 const taskController = {
   // Show all tasks

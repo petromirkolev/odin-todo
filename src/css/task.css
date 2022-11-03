@@ -91,6 +91,15 @@
   transform: scale(1.5);
   cursor: pointer;
 }
+.edit-task {
+  padding-left: 20px;
+  border: none;
+  background: none;
+}
+.edit-task:hover {
+  transform: scale(1.5);
+  cursor: pointer;
+}
 /* === View a task styling ends here === */
 
 /* Mobile view styling */

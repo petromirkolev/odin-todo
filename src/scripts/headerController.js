@@ -1,8 +1,8 @@
-import "../css/header.css";
+// import "../css/header.css";
 import { headerView } from "../views/headerView.js";
-import searchIcon from "../images/search.svg";
-import menuIcon from "../images/menu.svg";
-import gitHubImage from "../images/GitHub.png";
+// import searchIcon from "../images/search.svg";
+// import menuIcon from "../images/menu.svg";
+// import gitHubImage from "../images/GitHub.png";
 
 // Render header
 const renderHeaderView = () => {
@@ -10,12 +10,12 @@ const renderHeaderView = () => {
   const headerContainer = document.querySelector(".header-container");
   headerContainer.innerHTML = headerView;
   // Add header images
-  document.querySelector(".menu-icon").src = menuIcon;
-  document.querySelector(".search-icon").src = searchIcon;
-  document.querySelector(".gh-icon").src = gitHubImage;
-  // document.querySelector(".menu-icon").src = "./images/menu.svg";
-  // document.querySelector(".search-icon").src = "./images/search.svg";
-  // document.querySelector(".gh-icon").src = "./images/GitHub.png";
+  // document.querySelector(".menu-icon").src = menuIcon;
+  // document.querySelector(".search-icon").src = searchIcon;
+  // document.querySelector(".gh-icon").src = gitHubImage;
+  document.querySelector(".menu-icon").src = "./images/menu.svg";
+  document.querySelector(".search-icon").src = "./images/search.svg";
+  document.querySelector(".gh-icon").src = "./images/GitHub.png";
 };
 // Render search bar
 const renderSearchBar = () => {

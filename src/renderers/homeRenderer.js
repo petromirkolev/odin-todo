@@ -1,19 +1,23 @@
-import "../css/home.css";
-import homeView from "../views/homeView.js";
+// import "../css/home.css";
+import updateHomeViewContainer from "../helpers/updateHomeViewContainer.js";
 import updateLatestGoals from "../helpers/updateLatestGoals.js";
-import { renderGoalView } from "../renderers/goalRenderer.js";
+import updateLatestTasks from "../helpers/updateLatestTasks.js";
+import updateTopPriorityTasks from "../helpers/updateTopPrioTasks.js";
+import updateDeadlineTasks from "../helpers/updateDeadlineTasks.js";
 
 // Render home view
 function renderHomeView() {
-  const [g3, g2, g1] = [...updateLatestGoals()];
-  const appContainer = document.querySelector(".app-container");
-  appContainer.innerHTML = "";
-  appContainer.innerHTML = homeView(g3, g2, g1);
+  // Render home view
+  updateHomeViewContainer();
+  // Add latest goals
+  updateLatestGoals();
+  // Latest tasks
+  updateLatestTasks();
+  // Top priority tasks
+  updateTopPriorityTasks();
+  // Tasks approaching deadline
+  updateDeadlineTasks();
   // Show all goals
-  document.querySelector(".latest-goals").addEventListener("click", (e) => {
-    if (e.target.tagName !== "H2") return;
-    renderGoalView();
-  });
 }
 
 export { renderHomeView };

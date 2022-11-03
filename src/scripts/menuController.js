@@ -1,8 +1,8 @@
-import "../css/menu.css";
+// import "../css/menu.css";
 import goalController from "./goalController.js";
 import taskController from "./taskController.js";
 import updateMenuGoals from "../helpers/updateMenuGoals.js";
-import { renderGoalView } from "../renderers/goalRenderer.js";
+import { renderHomeGoalView } from "../renderers/goalRenderer.js";
 
 // Show or hide menu
 const showOrHideMenu = () => {
@@ -29,7 +29,11 @@ const menuBtnListener = () => {
 // Goals event listener
 const goalBtnListener = () => {
   document.querySelector(".nav-goals").addEventListener("click", (e) => {
-    renderGoalView();
+    const [navClass, id] = [
+      e.target.parentNode.classList[0],
+      +e.target.parentNode.classList[1],
+    ];
+    if (navClass === "nav-item" && id !== undefined) renderHomeGoalView(id);
   });
 };
 

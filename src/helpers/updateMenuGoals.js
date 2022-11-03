@@ -10,7 +10,7 @@ export default function updateMenuGoals() {
         "beforeend",
         `
           <div class="nav-item ${goal.id}">
-          <span class="material-symbols-outlined"> menu </span>
+          <span class="material-symbols-outlined">menu</span>
           <h1>${goal.name}</h1>
           </div>
           `

@@ -19,10 +19,10 @@ export const addTaskView = `
       <input type="date" name="task-due-date" id="task-due-date" />
       <label for="task-priority">🛎 Priority</label>
       <select name="task-priority" id="task-priority">
-        <option value="low">⬇️ Low</option>
-        <option value="medium">↕️ Medium</option>
-        <option value="high">⬆️ High</option>
-        <option value="urgent">❗️Urgent❗️</option>
+        <option value="1">⬇️ Low</option>
+        <option value="2">↕️ Medium</option>
+        <option value="3">⬆️ High</option>
+        <option value="4">❗️Urgent❗️</option>
       </select>
       <label for="parent-goal">🥅 Goal</label>
       <select name="parent-goal" id="parent-goal">
