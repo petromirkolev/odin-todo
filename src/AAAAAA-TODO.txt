@@ -1,0 +1,6 @@
+Things left to do:
+
+Render task view
+Update goal
+Update task
+Make search operational

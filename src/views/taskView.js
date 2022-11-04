@@ -1,4 +1,4 @@
-export const taskView = `
+const taskView = `
 <div class="view-task-container">
   <button class="close-btn">
     <span class="material-symbols-outlined"> close </span>
@@ -25,3 +25,5 @@ export const taskView = `
   </div>
 </div>
 `;
+
+export default taskView;

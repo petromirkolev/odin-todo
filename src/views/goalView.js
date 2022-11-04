@@ -1,4 +1,4 @@
-export const goalView = `
+const goalView = `
 <div class="view-goal-container">
   <button class="close-btn">
     <span class="material-symbols-outlined"> close </span>
@@ -9,3 +9,5 @@ export const goalView = `
    </div>
 </div>
 `;
+
+export default goalView;

@@ -1,4 +1,4 @@
-export const headerView = `
+const headerView = `
 <div class="header-icons">
   <a href="https://github.com/petromirkolev">
     <img class="gh-icon" alt="GitHub logo"
@@ -8,3 +8,4 @@ export const headerView = `
 </div>
 <input type="text" class="search-bar" />
 `;
+export default headerView;

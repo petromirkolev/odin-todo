@@ -1,29 +1,27 @@
-// import homeBtnListener from "./homeBtnListener.js";
-export default function updateHelper(
-  localStorageData,
-  kind,
-  type,
-  eventListener
-) {
-  const data = localStorageData === null ? false : localStorageData;
+import goalController from "../controllers/goalController.js";
+
+export default function updateHelper(data, section /* , event */) {
   let item3, item2, item1;
-  if (data) {
+  // We check if there is data that we receive, else we set it to false and return preset text
+  const itemArray = data === null ? false : data;
+  if (itemArray) {
     [item3, item2, item1] = [
-      data[data.length - 1] === undefined
+      itemArray[itemArray.length - 1] === undefined
         ? "Empty"
-        : data[data.length - 1].name,
-      data[data.length - 2] === undefined
+        : itemArray[itemArray.length - 1].name,
+      itemArray[itemArray.length - 2] === undefined
         ? "Empty"
-        : data[data.length - 2].name,
-      data[data.length - 3] === undefined
+        : itemArray[itemArray.length - 2].name,
+      itemArray[itemArray.length - 3] === undefined
         ? "Empty"
-        : data[data.length - 3].name,
+        : itemArray[itemArray.length - 3].name,
     ];
   } else {
-    item3 = item2 = item1 = `Waiting for ${type} 😢`;
+    let [...sectionOwner] = section.split("-");
+    item3 = item2 = item1 = `Waiting for ${sectionOwner[1]} 😢`;
   }
   // Add latest tasks to home view
-  const container = document.querySelector(`.${kind}-${type}`);
+  const container = document.querySelector(`.${section}`);
   container.insertAdjacentHTML(
     "beforeend",
     `
@@ -32,15 +30,13 @@ export default function updateHelper(
   <h2>${item1}</h2>
   `
   );
-
+  // Attach event listener to each view
   container.addEventListener("click", (e) => {
     if (e.target.tagName !== "H2" || e.target.textContent === "Empty") return;
-    const clickTarget = data.filter(
-      (goal) => goal.name === e.target.textContent
-    );
+    const clickTarget = itemArray.filter((goal) => {
+      if (goal.name === e.target.textContent) return goal.id;
+    });
     const id = clickTarget[0].id;
-    eventListener !== undefined ? eventListener(id) : null;
-    eventListener(id);
-    return id;
+    goalController.viewGoal(id);
   });
 }
