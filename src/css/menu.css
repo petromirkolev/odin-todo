@@ -11,7 +11,7 @@
   padding: 30px;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 400ms ease, opacity 400ms ease;
+  /* transition: visibility 400ms ease, opacity 400ms ease; */
 }
 /* Pseudo class for when navigation is active */
 .nav-container.active {

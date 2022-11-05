@@ -1,4 +1,8 @@
+import goalController from "../controllers/goalController.js";
+import taskController from "../controllers/taskController.js";
+import goalView from "../views/goalView.js";
 import headerView from "../views/headerView.js";
+import renderModal from "./modalHelper.js";
 
 const renderView = {
   header() {
@@ -25,16 +29,27 @@ const renderView = {
     document.querySelector(".search-bar").addEventListener("keypress", (e) => {
       // Store search value
       const input = document.querySelector(".search-bar").value;
+      const getGoals = JSON.parse(localStorage.getItem("goals"));
+      const getTasks = JSON.parse(localStorage.getItem("tasks"));
       // Submit search by pressing the Enter key
       if (e.key === "Enter") {
-        // TO DO - Find search result
-        console.log(input);
+        if (input.length > 0) {
+          const checkGoals = getGoals.find((goal) => goal.name === input);
+          const checkTasks = getTasks.find((task) => task.name === input);
+          if (checkGoals === undefined && checkTasks === undefined) {
+            renderModal("No results found");
+          }
+          if (checkGoals !== undefined) {
+            goalController.viewGoal(checkGoals.id);
+          }
+          if (checkTasks !== undefined) {
+            taskController.viewTask(checkTasks.id);
+          }
+        }
         // Reset the input field
         document.querySelector(".search-bar").value = "";
       }
     });
-    // console.log(document.querySelector(".search-bar").classList);
-    // TO DO
   },
 };
 

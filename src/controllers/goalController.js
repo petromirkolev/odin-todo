@@ -13,6 +13,9 @@ const goalController = {
   deleteGoal(name, tasks) {
     goal.delete(name, tasks);
   },
+  editGoal(id) {
+    goal.edit(id);
+  },
 };
 
 export default goalController;

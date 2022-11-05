@@ -7,5 +7,6 @@ export default class Task {
     this.goal = goal;
   }
   type = "task";
+  id = Date.now();
   isCompleted = false;
 }

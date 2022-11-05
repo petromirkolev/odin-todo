@@ -1,11 +1,11 @@
-const addTaskView = `
-<div class="task-container">
+const editTaskView = `
+<div class="edit-task-container">
   <button class="close-btn">
     <span class="material-symbols-outlined"> close </span>
   </button>
-  <div class="add-new-task">
+  <div class="edit-new-task">
     <h1>Add new task</h1>
-    <form class="add-new-task-form" action="submit">
+    <form class="edit-task-form" action="submit">
       <label for="task-name">📛 Name</label>
       <input type="text" name="task-name" id="task-name" required />
       <label for="task-description">📖 Description</label>
@@ -28,9 +28,9 @@ const addTaskView = `
       <select name="parent-goal" id="parent-goal">
       </select>
       </form>
-      <button class="add-task">Add task</button>
+      <button class="edit-task">Edit task</button>
   </div>
 </div>
 `;
 
-export default addTaskView;
+export default editTaskView;

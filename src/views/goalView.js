@@ -7,6 +7,8 @@ const goalView = `
    <div class="goal-wrapper">
    </div>
    </div>
+   <button class="edit-goal" id="">Edit</button>
+   <button class="delete-goal" id="">Delete</button>
 </div>
 `;
 

@@ -1,4 +1,5 @@
 import goalController from "../controllers/goalController.js";
+import taskController from "../controllers/taskController.js";
 
 export default function updateHelper(data, section /* , event */) {
   let item3, item2, item1;
@@ -33,10 +34,20 @@ export default function updateHelper(data, section /* , event */) {
   // Attach event listener to each view
   container.addEventListener("click", (e) => {
     if (e.target.tagName !== "H2" || e.target.textContent === "Empty") return;
-    const clickTarget = itemArray.filter((goal) => {
-      if (goal.name === e.target.textContent) return goal.id;
-    });
-    const id = clickTarget[0].id;
-    goalController.viewGoal(id);
+    if (e.target.parentNode.classList.contains("latest-goals")) {
+      // If it is a goal that is clicked, render this part
+      const clickTarget = itemArray.filter((goal) => {
+        if (goal.name === e.target.textContent) return goal.id;
+      });
+      const id = clickTarget[0].id;
+      goalController.viewGoal(id);
+    } else {
+      // If it is a task - render this one
+      const clickTarget = itemArray.filter((task) => {
+        if (task.name === e.target.textContent) return task.goal;
+      });
+      const id = clickTarget[0].id;
+      taskController.viewTask(id);
+    }
   });
 }

@@ -23,6 +23,8 @@ const taskView = `
       <p>Imaginary goal</p>
     </div>
   </div>
+  <button class="edit-task">Edit</button>
+  <button class="delete-task">Delete</button>
 </div>
 `;
 

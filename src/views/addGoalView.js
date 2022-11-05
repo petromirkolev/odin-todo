@@ -7,7 +7,12 @@ const addGoalView = `
     <h1>Add new goal</h1>
     <form class="add-new-goal-form" action="submit">
       <label for="goal-name">📛 Name</label>
-      <input type="text" name="goal-name" id="goal-name" required />
+      <input
+        type="text"
+        name="goal-name"
+        id="goal-name"
+        required
+      />
       <label for="goal-description">📖 Description</label>
       <input
         type="text"
@@ -15,10 +20,11 @@ const addGoalView = `
         id="goal-description"
         required
       />
-      </form>
-      <button class="add-goal">Add goal</button>
+    </form>
+    <button type="submit" class="add-goal">Add goal</button>
   </div>
 </div>
+
 `;
 
 export default addGoalView;

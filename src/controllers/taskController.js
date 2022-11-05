@@ -5,7 +5,15 @@ const taskController = {
   addTask() {
     task.add();
   },
-  viewTask() {},
+  viewTask(id) {
+    task.view(id);
+  },
+  editTask(id) {
+    task.edit(id);
+  },
+  deleteTask(id) {
+    task.delete(id);
+  },
 };
 
 export default taskController;
