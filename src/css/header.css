@@ -35,6 +35,9 @@
   cursor: pointer;
   transform: scale(1.1);
 }
+.search-bar:hover {
+  cursor: pointer;
+}
 /* GH logo icon styling */
 .gh-icon {
   height: 40px;

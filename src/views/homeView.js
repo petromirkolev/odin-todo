@@ -9,7 +9,7 @@ const homeView = `<div class="home-container">
       <h1>🔝 Top priority tasks</h1>
     </div>
     <div class="deadline-tasks">
-      <h1>⏰ Tasks approaching deadline</h1>
+      <h1>⏰ Approaching deadline</h1>
     </div>
   </div>
   `;

@@ -15,7 +15,6 @@ const renderView = {
           "beforeend",
           `
             <div class="nav-item ${goal.id}">
-            <span class="material-symbols-outlined">menu</span>
             <h1>${goal.name}</h1>
             </div>
             `
@@ -26,8 +25,7 @@ const renderView = {
         "beforeend",
         `
           <div class="nav-item">
-          <span class="material-symbols-outlined"> menu </span>
-          <h1>No goals yet 😢</h1>
+          <h1>No goals yet</h1>
           </div>
           `
       );

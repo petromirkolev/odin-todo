@@ -5,6 +5,7 @@ import updateHelper from "../helpers/updateHelper.js";
 import homeView from "../views/homeView.js";
 
 const renderView = {
+  // Update home screen sections
   home() {
     const appContainer = document.querySelector(".app-container");
     appContainer.innerHTML = "";
@@ -38,16 +39,6 @@ const renderView = {
     }
     updateHelper(tempTasks, "deadline-tasks", task.view);
   },
-  // goalsTasksEventListener(container, data, eventListener) {
-  //   container.addEventListener("click", (e) => {
-  //     if (e.target.tagName !== "H2" || e.target.textContent === "Empty") return;
-  //     const clickTarget = data.filter(
-  //       (goal) => goal.name === e.target.textContent
-  //     );
-  //     const id = clickTarget[0].id;
-  //     eventListener !== undefined ? eventListener(id) : null;
-  //   });
-  // },
   closeView() {
     document.querySelector(".close-btn").addEventListener("click", (e) => {
       homeController.renderHomeView();

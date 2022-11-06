@@ -35,14 +35,14 @@ export default function updateHelper(data, section /* , event */) {
   container.addEventListener("click", (e) => {
     if (e.target.tagName !== "H2" || e.target.textContent === "Empty") return;
     if (e.target.parentNode.classList.contains("latest-goals")) {
-      // If it is a goal that is clicked, render this part
+      // Goal handler
       const clickTarget = itemArray.filter((goal) => {
         if (goal.name === e.target.textContent) return goal.id;
       });
       const id = clickTarget[0].id;
       goalController.viewGoal(id);
     } else {
-      // If it is a task - render this one
+      // Task handler
       const clickTarget = itemArray.filter((task) => {
         if (task.name === e.target.textContent) return task.goal;
       });

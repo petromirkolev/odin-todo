@@ -7,8 +7,9 @@ import renderModal from "../helpers/modalHelper.js";
 import homeController from "../controllers/homeController.js";
 import taskController from "../controllers/taskController.js";
 import goalController from "../controllers/goalController.js";
+import goalStorage from "../storage/goalStorage.js";
 const query = document.querySelector.bind(document);
-const appContainer = document.querySelector(".app-container");
+const appContainer = query(".app-container");
 
 const renderView = {
   view(id) {
@@ -40,15 +41,19 @@ const renderView = {
     // Add task goal to view
     const getGoals = JSON.parse(localStorage.getItem("goals"));
     const goalData = getGoals.find((goal) => +goal.id === +taskData.goal);
-    if (goalData.length !== 0) {
+    if (goalData === undefined) {
+      query(".task-parent-goal > p").innerHTML = `No goals found!`;
+    } else {
       query(".task-parent-goal > p").innerHTML = `${goalData.name}`;
       query(".task-parent-goal > p").addEventListener("click", (e) => {
         goalController.viewGoal(goalData.id);
       });
-    } else {
-      query(".task-parent-goal > p").innerHTML = `No goals found!`;
     }
-    // Attach delete goal button logic
+    // Attach edit task button logic
+    query(".edit-task").addEventListener("click", (e) => {
+      taskController.editTask(id);
+    });
+    // Attach delete task button logic
     query(".delete-task").addEventListener("click", (e) => {
       taskController.deleteTask(id);
     });
@@ -56,7 +61,6 @@ const renderView = {
     homeController.closeView();
   },
   add() {
-    const query = document.querySelector.bind(document);
     appContainer.innerHTML = "";
     appContainer.innerHTML = addTaskView;
     // Import goals list from local storage to use in add task view
@@ -80,7 +84,7 @@ const renderView = {
           `<option value="ngy">No goals yet</option>`
         );
     }
-    document.querySelector(".add-task").addEventListener("click", (e) => {
+    query(".add-task").addEventListener("click", (e) => {
       const [name, description, dueDate, priority, goal] = [
         query("#task-name").value,
         query("#task-description").value,
@@ -88,7 +92,6 @@ const renderView = {
         query("#task-priority").value,
         query("#parent-goal").value,
       ];
-
       if (goal !== "ngy") {
         if (name.length > 0) {
           // Call task constructor
@@ -104,12 +107,14 @@ const renderView = {
             query("#task-priority").value =
             query("#parent-goal").value =
               "";
-          // Show modal
+          // Show success modal
           renderModal("🏆 Task added successfully! 🏆");
         } else {
+          // Show failure modal
           renderModal("❗️ Name must not be empty ❗️");
         }
       } else {
+        // Show failure modal
         renderModal("❗️ Add a goal first! ❗️");
       }
       homeController.renderHomeView();
@@ -118,25 +123,56 @@ const renderView = {
   edit(id) {
     appContainer.innerHTML = "";
     appContainer.innerHTML = editTaskView;
-    goalStorage.find((goal) => {
-      if (goal.id === id) {
-        document.querySelector("#edit-goal-name").value = goal.name;
-        document.querySelector("#edit-goal-description").value =
-          goal.description;
-        document.querySelector(".edit-goal").addEventListener("click", (e) => {
-          goal.name = document.querySelector("#edit-goal-name").value;
-          goal.description = document.querySelector(
-            "#edit-goal-description"
-          ).value;
-          localStorage.setItem("goals", JSON.stringify(goalStorage));
-          homeController.renderHomeView();
-          menuController.renderMenuView();
+    taskStorage.find((task) => {
+      if (task.id === id) {
+        query("#task-name").value = task.name;
+        query("#task-description").value = task.description;
+        query("#task-due-date").value = task.dueDate;
+        query("#task-priority").value = task.priority;
+        const goal = goalStorage.find((goal) => {
+          if (+goal.id === +task.goal) return goal;
+        });
+        document
+          .querySelector("#parent-goal")
+          .insertAdjacentHTML(
+            "beforeend",
+            `<option value="${goal.id}">${goal.name}</option>`
+          );
+
+        query(".edit-task").addEventListener("click", (e) => {
+          task.name = query("#task-name").value;
+          task.description = query("#task-description").value;
+          task.dueDate = query("#task-due-date").value;
+          task.priority = query("#task-priority").value;
+          if (task.name.length === 0) {
+            renderModal("❗️ Name must not be empty ❗️");
+          } else {
+            localStorage.setItem("tasks", JSON.stringify(taskStorage));
+            // Show success modal
+            renderModal("✅ Task edited successfully! ✅");
+            homeController.renderHomeView();
+          }
         });
       }
     });
   },
-
-  delete(id) {},
+  delete(id) {
+    const taskIndex = taskStorage.findIndex((task) => +task.id === +id);
+    const tasks = JSON.parse(localStorage.getItem("tasks"));
+    // Remove goal
+    taskStorage.splice(taskIndex, 1);
+    // Clear local storage
+    localStorage.clear();
+    // Re-assing remaining values to local storage
+    if (goalStorage.length !== 0)
+      localStorage.setItem("goals", JSON.stringify(goalStorage));
+    if (taskStorage.length !== 0)
+      localStorage.setItem("tasks", JSON.stringify(taskStorage));
+    // Show success modal
+    renderModal("Task deleted successfully!");
+    // Update views
+    homeController.renderHomeView();
+  },
 };
 
 export { renderView };

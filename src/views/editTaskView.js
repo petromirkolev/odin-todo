@@ -4,7 +4,7 @@ const editTaskView = `
     <span class="material-symbols-outlined"> close </span>
   </button>
   <div class="edit-new-task">
-    <h1>Add new task</h1>
+    <h1>Edit task</h1>
     <form class="edit-task-form" action="submit">
       <label for="task-name">📛 Name</label>
       <input type="text" name="task-name" id="task-name" required />

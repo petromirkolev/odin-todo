@@ -4,9 +4,9 @@ import goalController from "../controllers/goalController.js";
 import taskController from "../controllers/taskController.js";
 import goalStorage from "../storage/goalStorage.js";
 import taskStorage from "../storage/taskStorage.js";
+import goalView from "../views/goalView.js";
 import addGoalView from "../views/addGoalView.js";
 import editGoalView from "../views/editGoalView.js";
-import goalView from "../views/goalView.js";
 import Goal from "../constructors/goalConstructor.js";
 import renderModal from "./modalHelper.js";
 const appContainer = document.querySelector(".app-container");
@@ -68,20 +68,21 @@ const renderView = {
     document.querySelector(".add-goal").addEventListener("click", (e) => {
       const goalName = document.querySelector("#goal-name").value;
       const goalDescription = document.querySelector("#goal-description").value;
-
       // Check if goal name is not empty
       if (goalName.length === 0)
-        return renderModal("Goal name must not be empty!");
+        // Show failure modal
+        return renderModal("❗️ Name must not be empty ❗️");
+      // Create new goal object
       const newGoal = new Goal(goalName, goalDescription);
-      // Add goals to local storage
+      // Add goal to local storage
       localStorage.setItem("goal", JSON.stringify(newGoal));
       goalStorage.push(newGoal);
       localStorage.setItem("goals", JSON.stringify(goalStorage));
       document.querySelector("#goal-name").value = document.querySelector(
         "#goal-description"
       ).value = "";
-      // Show modal
-      renderModal("Goal added successfully!");
+      // Show success modal
+      renderModal("🏆 Goal added successfully! 🏆");
       // Render home page
       homeController.renderHomeView();
       menuController.renderMenuView();
@@ -116,7 +117,7 @@ const renderView = {
       localStorage.setItem("goals", JSON.stringify(goalStorage));
     if (taskStorage.length !== 0)
       localStorage.setItem("tasks", JSON.stringify(taskStorage));
-    // Render success modal
+    // Show success modal
     renderModal("Goal deleted successfully!");
     // Update views
     homeController.renderHomeView();
@@ -135,9 +136,15 @@ const renderView = {
           goal.description = document.querySelector(
             "#edit-goal-description"
           ).value;
-          localStorage.setItem("goals", JSON.stringify(goalStorage));
-          homeController.renderHomeView();
-          menuController.renderMenuView();
+          if (goal.name.length === 0) {
+            // Show failure modal
+            renderModal("❗️ Name must not be empty ❗️");
+          } else {
+            localStorage.setItem("goals", JSON.stringify(goalStorage));
+            renderModal("✅ Goal edited successfully! ✅");
+            homeController.renderHomeView();
+            menuController.renderMenuView();
+          }
         });
       }
     });

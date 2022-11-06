@@ -1,6 +1,5 @@
 import goalController from "../controllers/goalController.js";
 import taskController from "../controllers/taskController.js";
-import goalView from "../views/goalView.js";
 import headerView from "../views/headerView.js";
 import renderModal from "./modalHelper.js";
 
@@ -18,6 +17,9 @@ const renderView = {
     document.querySelector(".gh-icon").src = "./images/GitHub.png";
     // Make search bar operational
     document.querySelector(".search-icon").addEventListener("click", (e) => {
+      document.querySelector(".search-bar").classList.toggle("active");
+    });
+    document.querySelector(".search-bar").addEventListener("click", (e) => {
       document.querySelector(".search-bar").classList.toggle("active");
     });
     // Make menu operational
@@ -40,10 +42,18 @@ const renderView = {
             renderModal("No results found");
           }
           if (checkGoals !== undefined) {
-            goalController.viewGoal(checkGoals.id);
+            renderModal("🎉 Goal found! 🎉");
+            setTimeout(() => {
+              document.querySelector(".modal-close").click();
+              goalController.viewGoal(checkGoals.id);
+            }, 1500);
           }
           if (checkTasks !== undefined) {
-            taskController.viewTask(checkTasks.id);
+            renderModal("🎉 Task found! 🎉");
+            setTimeout(() => {
+              document.querySelector(".modal-close").click();
+              taskController.viewTask(checkTasks.id);
+            }, 1500);
           }
         }
         // Reset the input field
