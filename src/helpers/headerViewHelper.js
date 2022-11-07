@@ -2,6 +2,9 @@ import goalController from "../controllers/goalController.js";
 import taskController from "../controllers/taskController.js";
 import headerView from "../views/headerView.js";
 import renderModal from "./modalHelper.js";
+import menuIcon from "../images/menu.svg";
+import searchIcon from "../images/search.svg";
+import gitHubImage from "../images/GitHub.png";
 
 const renderView = {
   headerView() {
@@ -9,12 +12,12 @@ const renderView = {
     const headerContainer = document.querySelector(".header-container");
     headerContainer.innerHTML = headerView;
     // Add header images
-    // document.querySelector(".menu-icon").src = menuIcon;
-    // document.querySelector(".search-icon").src = searchIcon;
-    // document.querySelector(".gh-icon").src = gitHubImage;
-    document.querySelector(".menu-icon").src = "./images/menu.svg";
-    document.querySelector(".search-icon").src = "./images/search.svg";
-    document.querySelector(".gh-icon").src = "./images/GitHub.png";
+    document.querySelector(".menu-icon").src = menuIcon;
+    document.querySelector(".search-icon").src = searchIcon;
+    document.querySelector(".gh-icon").src = gitHubImage;
+    // document.querySelector(".menu-icon").src = "./images/menu.svg";
+    // document.querySelector(".search-icon").src = "./images/search.svg";
+    // document.querySelector(".gh-icon").src = "./images/GitHub.png";
     // Make search bar operational
     document.querySelector(".search-icon").addEventListener("click", (e) => {
       document.querySelector(".search-bar").classList.toggle("active");
