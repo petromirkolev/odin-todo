@@ -47,6 +47,18 @@
   transform: scale(1.1);
   cursor: pointer;
 }
+/* Tablet view styling */
+@media screen and (max-width: 850px) {
+  .home-container {
+    grid-template: auto / 1fr;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+  }
+  .home-container div {
+    margin-bottom: 20px;
+  }
+}
 
 /* Mobile view styling */
 @media screen and (max-width: 600px) {

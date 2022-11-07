@@ -19,7 +19,7 @@ export default function updateHelper(data, section /* , event */) {
     ];
   } else {
     let [...sectionOwner] = section.split("-");
-    item3 = item2 = item1 = `Waiting for ${sectionOwner[1]} 😢`;
+    item3 = item2 = item1 = `Waiting for ${sectionOwner[1]}...`;
   }
   // Add latest tasks to home view
   const container = document.querySelector(`.${section}`);

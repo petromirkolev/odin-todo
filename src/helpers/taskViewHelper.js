@@ -15,6 +15,7 @@ const renderView = {
   view(id) {
     appContainer.innerHTML = "";
     appContainer.innerHTML = taskView;
+    homeController.closeView(); // Attach close view button logic
     // Pass task data to use in goal view
     const getTasks = JSON.parse(localStorage.getItem("tasks"));
     const taskData = getTasks.find((task) => task.id === id);
@@ -30,7 +31,6 @@ const renderView = {
           return "Urgent";
       }
     };
-
     // Add task info to view
     query(".view-task-container > h1").innerHTML = `📛 ${taskData.name}`;
     query(".task-description > p").innerHTML = `${taskData.description}`;
@@ -57,14 +57,14 @@ const renderView = {
     query(".delete-task").addEventListener("click", (e) => {
       taskController.deleteTask(id);
     });
-    // Attach close view button logic
-    homeController.closeView();
   },
   add() {
     appContainer.innerHTML = "";
     appContainer.innerHTML = addTaskView;
+    homeController.closeView(); // Attach close view button logic
     // Import goals list from local storage to use in add task view
     let latestGoals = JSON.parse(localStorage.getItem("goals"));
+    let latestTasks = JSON.parse(localStorage.getItem("tasks"));
     // If goals, add them to the view
     const data = latestGoals === null ? false : latestGoals;
     if (data) {
@@ -94,21 +94,40 @@ const renderView = {
       ];
       if (goal !== "ngy") {
         if (name.length > 0) {
-          // Call task constructor
-          const newTask = new Task(name, description, dueDate, priority, goal);
-          // Add task to local storage
-          localStorage.setItem("task", JSON.stringify(newTask));
-          taskStorage.push(newTask);
-          localStorage.setItem("tasks", JSON.stringify(taskStorage));
-          // Reset input
-          query("#task-name").value =
-            query("#task-description").value =
-            query("#task-due-date").value =
-            query("#task-priority").value =
-            query("#parent-goal").value =
-              "";
-          // Show success modal
-          renderModal("🏆 Task added successfully! 🏆");
+          let goalName = latestGoals.find((goal) => goal.name === name);
+          let isNameUsed = false;
+          if (latestTasks !== null)
+            latestTasks.map((task) => {
+              if (task.name.includes(name)) {
+                isNameUsed = true;
+              }
+            });
+          if (goalName === undefined && isNameUsed === false) {
+            // Call task constructor
+            const newTask = new Task(
+              name,
+              description,
+              dueDate,
+              priority,
+              goal
+            );
+            // Add task to local storage
+            localStorage.setItem("task", JSON.stringify(newTask));
+            taskStorage.push(newTask);
+            localStorage.setItem("tasks", JSON.stringify(taskStorage));
+            // Reset input
+            query("#task-name").value =
+              query("#task-description").value =
+              query("#task-due-date").value =
+              query("#task-priority").value =
+              query("#parent-goal").value =
+                "";
+            // Show success modal
+            renderModal("🏆 Task added successfully! 🏆");
+            homeController.renderHomeView();
+          } else {
+            renderModal("❗️ Task name must be different! ❗️");
+          }
         } else {
           // Show failure modal
           renderModal("❗️ Name must not be empty ❗️");
@@ -117,12 +136,12 @@ const renderView = {
         // Show failure modal
         renderModal("❗️ Add a goal first! ❗️");
       }
-      homeController.renderHomeView();
     });
   },
   edit(id) {
     appContainer.innerHTML = "";
     appContainer.innerHTML = editTaskView;
+    homeController.closeView(); // Attach close view button logic
     taskStorage.find((task) => {
       if (task.id === id) {
         query("#task-name").value = task.name;

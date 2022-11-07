@@ -13,22 +13,23 @@ const appContainer = document.querySelector(".app-container");
 
 const renderView = {
   view(id) {
-    appContainer.innerHTML = "";
+    appContainer.innerHTML = ""; // Reset parent container first
     appContainer.innerHTML = goalView; // Pass goal data to use in goal view
-    const getGoals = JSON.parse(localStorage.getItem("goals"));
-    const goalData = getGoals.find((goal) => goal.id === id);
+    homeController.closeView(); // Attach close view button logic
+    const getGoals = JSON.parse(localStorage.getItem("goals")); // Get goals from localStorage
+    const goalData = getGoals.find((goal) => goal.id === id); // Find the matching goal
     // Add goal info to view
     document.querySelector(".list-goals").insertAdjacentHTML(
       "afterbegin",
       `<h1>${goalData.name}</h1>
-     <h2>🎯 Goal description</h2>
-     <p>${goalData.description}</p>
-     <h2>📗 Goal tasks</h2>`
+       <h2>🎯 Goal description</h2>
+       <p>${goalData.description}</p>
+       <h2>📗 Goal tasks</h2>`
     );
     // Add goal tasks to view
-    const getTasks = JSON.parse(localStorage.getItem("tasks"));
+    const getTasks = JSON.parse(localStorage.getItem("tasks")); // Get tasks from localStorage
     if (getTasks !== null) {
-      const taskData = getTasks.filter((task) => +task.goal === id);
+      const taskData = getTasks.filter((task) => +task.goal === id); // Task found
       if (taskData.length !== 0) {
         taskData.forEach((task) => {
           document
@@ -47,7 +48,7 @@ const renderView = {
     } else {
       document
         .querySelector(".goal-wrapper")
-        .insertAdjacentHTML("afterbegin", `<h3>🛠 No tasks yet</h3>`);
+        .insertAdjacentHTML("afterbegin", `<h3>No tasks yet</h3>`);
     }
     // Attach edit goal button logic
     document.querySelector(".edit-goal").addEventListener("click", (e) => {
@@ -57,21 +58,25 @@ const renderView = {
     document.querySelector(".delete-goal").addEventListener("click", (e) => {
       goalController.deleteGoal(id);
     });
-    // Attach close view button logic
-    homeController.closeView();
   },
   add() {
-    appContainer.innerHTML = "";
-    appContainer.innerHTML = addGoalView;
-    // Attach close view button logic
-    homeController.closeView();
+    appContainer.innerHTML = ""; // Reset parent container first
+    appContainer.innerHTML = addGoalView; // Pass goal data to use in goal view
+    homeController.closeView(); // Attach close view button logic
     document.querySelector(".add-goal").addEventListener("click", (e) => {
       const goalName = document.querySelector("#goal-name").value;
       const goalDescription = document.querySelector("#goal-description").value;
       // Check if goal name is not empty
       if (goalName.length === 0)
-        // Show failure modal
         return renderModal("❗️ Name must not be empty ❗️");
+      let isNameUsed = false;
+      goalStorage.map((goal) => {
+        if (goal.name === goalName) {
+          isNameUsed = true;
+        }
+      });
+      // Check if goal name is used
+      if (isNameUsed) return renderModal("❗️ Name must not be re-used ❗️");
       // Create new goal object
       const newGoal = new Goal(goalName, goalDescription);
       // Add goal to local storage
@@ -110,7 +115,6 @@ const renderView = {
       }
     // Remove goal
     goalStorage.splice(goalIndex, 1);
-    // Clear local storage
     localStorage.clear();
     // Re-assing remaining values to local storage
     if (goalStorage.length !== 0)
@@ -118,7 +122,7 @@ const renderView = {
     if (taskStorage.length !== 0)
       localStorage.setItem("tasks", JSON.stringify(taskStorage));
     // Show success modal
-    renderModal("Goal deleted successfully!");
+    renderModal("✅ Goal deleted successfully! ✅");
     // Update views
     homeController.renderHomeView();
     menuController.renderMenuView();

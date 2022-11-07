@@ -4,7 +4,7 @@ import headerView from "../views/headerView.js";
 import renderModal from "./modalHelper.js";
 
 const renderView = {
-  header() {
+  headerView() {
     // Render view skeleton
     const headerContainer = document.querySelector(".header-container");
     headerContainer.innerHTML = headerView;
@@ -19,9 +19,6 @@ const renderView = {
     document.querySelector(".search-icon").addEventListener("click", (e) => {
       document.querySelector(".search-bar").classList.toggle("active");
     });
-    document.querySelector(".search-bar").addEventListener("click", (e) => {
-      document.querySelector(".search-bar").classList.toggle("active");
-    });
     // Make menu operational
     document.querySelector(".menu-icon").addEventListener("click", (e) => {
       document.querySelector(".nav-container").classList.toggle("active");
@@ -31,22 +28,40 @@ const renderView = {
     document.querySelector(".search-bar").addEventListener("keypress", (e) => {
       // Store search value
       const input = document.querySelector(".search-bar").value;
-      const getGoals = JSON.parse(localStorage.getItem("goals"));
-      const getTasks = JSON.parse(localStorage.getItem("tasks"));
+      const getGoals = JSON.parse(localStorage.getItem("goals")); // null if no goals
+      const getTasks = JSON.parse(localStorage.getItem("tasks")); // null if no tasks
       // Submit search by pressing the Enter key
-      if (e.key === "Enter") {
-        if (input.length > 0) {
+      if (e.key === "Enter" && input.length > 0) {
+        document.querySelector(".search-bar").value = "";
+
+        if (getGoals === null && getTasks === null)
+          return renderModal("🚫 No results found 🚫");
+
+        if (getGoals !== null && getTasks === null) {
           const checkGoals = getGoals.find((goal) => goal.name === input);
-          const checkTasks = getTasks.find((task) => task.name === input);
-          if (checkGoals === undefined && checkTasks === undefined) {
-            renderModal("No results found");
-          }
           if (checkGoals !== undefined) {
             renderModal("🎉 Goal found! 🎉");
             setTimeout(() => {
               document.querySelector(".modal-close").click();
               goalController.viewGoal(checkGoals.id);
             }, 1500);
+            return;
+          } else {
+            return renderModal("🚫 No results found 🚫");
+          }
+        }
+        if (getGoals !== null && getTasks !== null) {
+          const checkTasks = getTasks.find((task) => task.name === input);
+          const checkGoals = getGoals.find((goal) => goal.name === input);
+          if (checkGoals === undefined && checkTasks === undefined)
+            return renderModal("🚫 No results found 🚫");
+          if (checkGoals !== undefined) {
+            renderModal("🎉 Goal found! 🎉");
+            setTimeout(() => {
+              document.querySelector(".modal-close").click();
+              goalController.viewGoal(checkGoals.id);
+            }, 1500);
+            return;
           }
           if (checkTasks !== undefined) {
             renderModal("🎉 Task found! 🎉");
@@ -54,10 +69,9 @@ const renderView = {
               document.querySelector(".modal-close").click();
               taskController.viewTask(checkTasks.id);
             }, 1500);
+            return;
           }
         }
-        // Reset the input field
-        document.querySelector(".search-bar").value = "";
       }
     });
   },

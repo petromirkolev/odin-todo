@@ -22,7 +22,7 @@ const addTaskView = `
         <option value="1">⬇️ Low</option>
         <option value="2">↕️ Medium</option>
         <option value="3">⬆️ High</option>
-        <option value="4">❗️Urgent❗️</option>
+        <option value="4">❗️Urgent</option>
       </select>
       <label for="parent-goal">🥅 Goal</label>
       <select name="parent-goal" id="parent-goal">

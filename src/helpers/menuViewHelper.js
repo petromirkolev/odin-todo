@@ -13,22 +13,25 @@ const renderView = {
       latestGoals.forEach((goal) => {
         goalsContainer.insertAdjacentHTML(
           "beforeend",
-          `
-            <div class="nav-item ${goal.id}">
-            <h1>${goal.name}</h1>
-            </div>
-            `
+          `<div class="nav-item ${goal.id}">
+          <h1>${goal.name}</h1>
+          </div>`
         );
       });
     } else {
-      goalsContainer.insertAdjacentHTML(
-        "beforeend",
-        `
-          <div class="nav-item">
-          <h1>No goals yet</h1>
-          </div>
-          `
-      );
+      goalsContainer.innerHTML = "";
+    }
+    if (latestGoals !== null) {
+      document
+        .querySelector(".nav-goals")
+        .addEventListener("click", function viewGoal(e) {
+          const [navClass, id] = [
+            e.target.parentNode.classList[0],
+            +e.target.parentNode.classList[1],
+          ];
+          if (navClass === "nav-item" && id !== undefined)
+            goalController.viewGoal(id);
+        });
     }
   },
   buttons() {
@@ -42,14 +45,6 @@ const renderView = {
       if (currentButton === "btn-new-task") {
         taskController.addTask();
       }
-    });
-    document.querySelector(".nav-goals").addEventListener("click", (e) => {
-      const [navClass, id] = [
-        e.target.parentNode.classList[0],
-        +e.target.parentNode.classList[1],
-      ];
-      if (navClass === "nav-item" && id !== undefined)
-        goalController.viewGoal(id);
     });
   },
 };
